@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"></head>
+        <title>FlintESPJVM Web Tool</title>
+        <meta name="description" content="Easily allow users to install FlintESPJVM firmware on the web for ESP32."></meta>
+        <meta name="viewport" content="width=device-width"></meta>
+        <meta name="color-scheme" content="dark light"></meta>
+        <link rel="stylesheet" href="styles/index.css"/>
+        <script type="module" src="https://unpkg.com/esp-web-tools@10.0.1/dist/web/install-button.js?module"></script>
+    </head>
+    <body>
+        <div class="shadow_panel vertial">
+            <div class="vertial">
+                <div class="title_panel">
+                    <h3 style="color: white;">FlintESPJVM Web Tool</h3>
+                </div>
+                <div class="vertial" style="margin: 20px;">
+                    <div class="vertial" style="align-items: first baseline;">
+                        <b>Board:</b>
+                        <select class="board_option" onchange="setManifest(this)">
+                            <option data-manifest="esp32_manifest.json">ESP32-WROOM-32</option>
+                            <option data-manifest="esp32-s2fn4r2_manifest.json">ESP32-S2FN4R2 (ESP32-S2 Mini)</option>
+                            <option data-manifest="esp32-s3fh4r2_manifest.json">ESP32-S3FH4R2 (ESP32-S3 Mini)</option>
+                        </select>
+                    </div>
+                    <esp-web-install-button manifest="manifests/esp32_manifest.json">
+                        <button class="flash_button" slot="activate"><b>FLASH</b></button>
+                    </esp-web-install-button>
+                    <script>
+                        function setManifest(sel) {
+                            var opt = sel.options[sel.selectedIndex];
+                            const button = document.querySelector('esp-web-install-button');
+                            button.manifest = "/manifests/" + opt.dataset.manifest;
+                        }
+                    </script>
+                </div>
+            </div>
+            <b style="font-size: 11px; align-items: first baseline; margin-bottom: 5px;">FlintESPJVM V0.0.2</b>
+        </div>
+    </body>
+</html>
