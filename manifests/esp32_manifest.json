@@ -1,6 +1,6 @@
 {
     "name": "FlintESPJVM",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "home_assistant_domain": "FlintESPJVM",
     "funding_url": "https://esphome.io/guides/supporters.html",
     "new_install_prompt_erase": false,
@@ -9,7 +9,7 @@
             "chipFamily": "ESP32",
             "parts": [
                 {
-                    "path": "/firmwares/ESP32_FlintJVM.bin",
+                    "path": "/firmwares/ESP32_FlintJVM_Release.bin",
                     "offset": 0
                 }
             ]
