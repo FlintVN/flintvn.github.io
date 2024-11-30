@@ -6,10 +6,10 @@
     "new_install_prompt_erase": false,
     "builds": [
         {
-            "chipFamily": "ESP32-S2",
+            "chipFamily": "ESP32",
             "parts": [
                 {
-                    "path": "/firmwares/ESP32-S2FN4R2_FlintJVM_Release.bin",
+                    "path": "resources/firmwares/ESP32_FlintJVM_Release.bin",
                     "offset": 0
                 }
             ]

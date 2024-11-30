@@ -18,22 +18,22 @@
                 <div class="vertial" style="margin: 20px;">
                     <div class="vertial" style="align-items: first baseline;">
                         <b>Board:</b>
-                        <select class="board_option" onchange="setManifest(this)">
-                            <option data-manifest="esp32_manifest.json">ESP32-WROOM-32</option>
-                            <option data-manifest="esp32-s2fn4r2_manifest.json">ESP32-S2FN4R2 (ESP32-S2 Mini)</option>
-                            <option data-manifest="esp32-s3fh4r2_manifest.json">ESP32-S3FH4R2 (ESP32-S3 Mini)</option>
-                            <option data-manifest="esp32-s3n8r8_manifest.json">ESP32-S3N8R8</option>
-                            <option data-manifest="esp32-s3n16r8_manifest.json">ESP32-S3N16R8</option>
+                        <select class="board_option" onchange="setBoard(this)">
+                            <option data-board="esp32">ESP32-WROOM-32</option>
+                            <option data-board="esp32-s2fn4r2">ESP32-S2FN4R2 (ESP32-S2 Mini)</option>
+                            <option data-board="esp32-s3fh4r2">ESP32-S3FH4R2 (ESP32-S3 Mini)</option>
+                            <option data-board="esp32-s3n8r8">ESP32-S3N8R8</option>
+                            <option data-board="esp32-s3n16r8">ESP32-S3N16R8</option>
                         </select>
                     </div>
-                    <esp-web-install-button manifest="manifests/esp32_manifest.json">
+                    <esp-web-install-button manifest="resources/manifests/esp32_manifest.json">
                         <button class="flash_button" slot="activate"><b>FLASH</b></button>
                     </esp-web-install-button>
                     <script>
-                        function setManifest(sel) {
+                        function setBoard(sel) {
                             var opt = sel.options[sel.selectedIndex];
                             const button = document.querySelector('esp-web-install-button');
-                            button.manifest = "/manifests/" + opt.dataset.manifest;
+                            button.manifest = "resources/manifests/" + opt.dataset.board + "_manifest.json";
                         }
                     </script>
                 </div>
