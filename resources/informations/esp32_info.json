@@ -1,0 +1,8 @@
+{
+    "core": "Dual-core 32-bit Xtensa LX6",
+    "clock": "240MHz",
+    "rom": "448KB",
+    "sram": "520KB",
+    "flash": "4MB",
+    "psram": "None"
+}

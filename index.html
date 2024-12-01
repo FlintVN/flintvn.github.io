@@ -17,8 +17,8 @@
                 </div>
                 <div class="vertial" style="margin: 20px;">
                     <div class="vertial" style="align-items: first baseline;">
-                        <b>Board:</b>
-                        <select class="board_option" onchange="setBoard(this)">
+                        <b>Board</b>
+                        <select class="board_option" id="board_option" onchange="setBoard()">
                             <option data-board="esp32">ESP32-WROOM-32</option>
                             <option data-board="esp32-s2fn4r2">ESP32-S2FN4R2 (ESP32-S2 Mini)</option>
                             <option data-board="esp32-s3fh4r2">ESP32-S3FH4R2 (ESP32-S3 Mini)</option>
@@ -26,15 +26,69 @@
                             <option data-board="esp32-s3n16r8">ESP32-S3N16R8</option>
                         </select>
                     </div>
+                    <div class="vertial" style="align-items: first baseline; margin-top: 10px;">
+                        <b>Info</b>
+                        <div class="info_panel">
+                            <table>
+                                <tr>
+                                    <td>Core:</td>
+                                    <td id="core_info"></td>
+                                </tr>
+                                <tr>
+                                    <td>Clock:</td>
+                                    <td id="clock_info"></td>
+                                </tr>
+                                <tr>
+                                    <td>ROM:</td>
+                                    <td id="rom_info"></td>
+                                </tr>
+                                <tr>
+                                    <td>SRAM:</td>
+                                    <td id="sram_info"></td>
+                                </tr>
+                                <tr>
+                                    <td>Flash:</td>
+                                    <td id="flash_info"></td>
+                                </tr>
+                                <tr>
+                                    <td>PSRAM:</td>
+                                    <td id="psram_info"></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
                     <esp-web-install-button manifest="resources/manifests/esp32_manifest.json">
                         <button class="flash_button" slot="activate"><b>FLASH</b></button>
                     </esp-web-install-button>
                     <script>
-                        function setBoard(sel) {
+                        function setInfo(data) {
+                            document.getElementById('core_info').innerHTML = data.core ? data.core : "None";
+                            document.getElementById('clock_info').innerHTML = data.clock ? data.clock : "None";
+                            document.getElementById('rom_info').innerHTML = data.rom ? data.rom : "None";
+                            document.getElementById('sram_info').innerHTML = data.sram ? data.sram : "None";
+                            document.getElementById('flash_info').innerHTML = data.flash ? data.flash : "None";
+                            document.getElementById('psram_info').innerHTML = data.psram ? data.psram : "None";
+                        }
+
+                        function setBoard() {
+                            var sel = document.getElementById('board_option');
                             var opt = sel.options[sel.selectedIndex];
                             const button = document.querySelector('esp-web-install-button');
                             button.manifest = "resources/manifests/" + opt.dataset.board + "_manifest.json";
+
+                            var info = "resources/informations/" + opt.dataset.board + "_info.json";
+                            fetch(info).then(response => {
+                                if(!response.ok)
+                                    return setInfo(null);
+                                return response.json();
+                            }).then(data => {
+                                setInfo(data);
+                            }).catch(error => {
+                                setInfo(null);
+                            });
                         }
+
+                        setBoard();
                     </script>
                 </div>
             </div>

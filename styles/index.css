@@ -1,11 +1,11 @@
 
 body {
-    width: 100%;
+    width: 100vw;
+    height: 100vh;
     margin: 0px;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-top: 20vh;
     background: white;
     color: #444444;
     font-family: "Segoe UI";
@@ -28,12 +28,12 @@ body {
 }
 
 .shadow_panel {
+    height: auto;
     border-radius: 10px;
     box-shadow: 0px 0px 50px 10px gray;
     text-align: center;
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center center;
 }
 
 .title_panel {
@@ -53,6 +53,23 @@ body {
     outline: none;
     color: black;
     background-color: #00000030;
+}
+
+.info_panel {
+    border-radius: 6px;
+    width: 310px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #00000030;
+}
+
+.info_panel table {
+    color: black;
+    text-align: left;
+}
+
+.info_panel td {
+    padding-right: 10px;
 }
 
 .flash_button {

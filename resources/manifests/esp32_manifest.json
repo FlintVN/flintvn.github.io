@@ -9,7 +9,7 @@
             "chipFamily": "ESP32",
             "parts": [
                 {
-                    "path": "resources/firmwares/ESP32_FlintJVM_Release.bin",
+                    "path": "../firmwares/ESP32_FlintJVM_Release.bin",
                     "offset": 0
                 }
             ]
