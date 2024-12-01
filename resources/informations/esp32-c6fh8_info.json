@@ -1,0 +1,8 @@
+{
+    "core": "Single-core 32-bit RISC-V",
+    "clock": "160MHz",
+    "rom": "320KB",
+    "sram": "512KB",
+    "flash": "8MB",
+    "psram": "None"
+}
