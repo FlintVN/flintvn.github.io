@@ -4,5 +4,5 @@
     "rom": "384KB",
     "sram": "512KB",
     "flash": "8MB",
-    "psram": "8MB"
+    "psram": "2MB to 8MB"
 }
