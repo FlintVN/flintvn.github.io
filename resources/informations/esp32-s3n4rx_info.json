@@ -1,0 +1,8 @@
+{
+    "core": "Dual-core 32-bit Xtensa LX7",
+    "clock": "240MHz",
+    "rom": "384KB",
+    "sram": "512KB",
+    "flash": "4MB",
+    "psram": "2MB to 8MB"
+}
