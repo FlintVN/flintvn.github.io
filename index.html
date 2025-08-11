@@ -19,15 +19,15 @@
                     <div class="vertial" style="align-items: first baseline;">
                         <b>Board</b>
                         <select class="board_option" id="board_option" onchange="setBoard()">
-                            <option data-board="esp32">ESP32-WROOM-32</option>
-                            <option data-board="esp32-s2fn4r2">ESP32-S2FN4R2 (ESP32-S2 Mini)</option>
-                            <option data-board="esp32-s3fh4r2">ESP32-S3FH4R2 (ESP32-S3 Mini)</option>
-                            <option data-board="esp32-s3n4rx">ESP32-S3N4RX</option>
-                            <option data-board="esp32-s3n8rx">ESP32-S3N8RX</option>
-                            <option data-board="esp32-s3n16rx">ESP32-S3N16RX</option>
-                            <option data-board="esp32-c3fh4">ESP32-C3FH4</option>
-                            <option data-board="esp32-c6fh4">ESP32-C6FH4</option>
-                            <option data-board="esp32-c6fh8">ESP32-C6FH8</option>
+                            <option data-board="ESP32">ESP32-WROOM-32</option>
+                            <option data-board="ESP32-S2FN4R2">ESP32-S2FN4R2 (ESP32-S2 Mini)</option>
+                            <option data-board="ESP32-S3FH4R2">ESP32-S3FH4R2 (ESP32-S3 Mini)</option>
+                            <option data-board="ESP32-S3N4RX">ESP32-S3N4RX</option>
+                            <option data-board="ESP32-S3N8RX">ESP32-S3N8RX</option>
+                            <option data-board="ESP32-S3N16RX">ESP32-S3N16RX</option>
+                            <option data-board="ESP32-C3FH4">ESP32-C3FH4</option>
+                            <option data-board="ESP32-C6FH4">ESP32-C6FH4</option>
+                            <option data-board="ESP32-C6FH8">ESP32-C6FH8</option>
                         </select>
                     </div>
                     <div class="vertial" style="align-items: first baseline; margin-top: 10px;">
@@ -61,9 +61,12 @@
                             </table>
                         </div>
                     </div>
-                    <esp-web-install-button manifest="resources/manifests/esp32_manifest.json">
-                        <button class="flash_button" slot="activate"><b>FLASH</b></button>
-                    </esp-web-install-button>
+                    <div class="horizontal" style="margin-top: 30px">
+                        <esp-web-install-button manifest="resources/manifests/esp32_manifest.json">
+                            <button class="flash_button" slot="activate"><b>FLASH</b></button>
+                        </esp-web-install-button>
+                        <a id="download-link" href="resources/firmwares/ESP32_FlintJVM_Release.bin"><button class="download_button"><b>DOWNLOAD</b></button></a>
+                    </div>
                     <script>
                         function setInfo(data) {
                             document.getElementById('core_info').innerHTML = data.core ? data.core : "None";
@@ -74,18 +77,25 @@
                             document.getElementById('psram_info').innerHTML = data.psram ? data.psram : "None";
                         }
 
-                        function setBoard() {
+                        async function setBoard() {
                             var sel = document.getElementById('board_option');
                             var opt = sel.options[sel.selectedIndex];
-                            const button = document.querySelector('esp-web-install-button');
-                            button.manifest = "resources/manifests/" + opt.dataset.board + "_manifest.json";
-
-                            var info = "resources/informations/" + opt.dataset.board + "_info.json";
-                            fetch(info).then(response => {
+                            const installButton = document.querySelector('esp-web-install-button');
+                            installButton.manifest = 'resources/manifests/' + opt.dataset.board.toLowerCase() + '_manifest.json';
+                            const downloadLink = document.getElementById('download-link')
+                            try {
+                                var info = 'resources/informations/' + opt.dataset.board.toLowerCase() + '_info.json';
+                                const response = await fetch(info);
                                 if(!response.ok)
-                                    return setInfo(null);
-                                return response.json();
-                            }).then(data => setInfo(data)).catch(error => setInfo(null));
+                                    throw new Error(`HTTP error! status: ${response.status}`);
+                                const data = await response.json();
+                                setInfo(data);
+                                downloadLink.href = 'resources/firmwares/' + opt.dataset.board + '_FlintJVM_Release.bin';
+                            }
+                            catch(error) {
+                                setInfo(null);
+                                downloadLink.href = '';
+                            }
                         }
 
                         setBoard();

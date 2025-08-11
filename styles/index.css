@@ -74,18 +74,28 @@ body {
 
 .flash_button {
     padding: 0px;
-    width: 310px;
+    width: 155px;
     height: 35px;
-    margin-top: 30px;
+    margin-right: 3px;
     border-radius: 6px;
     border-width: 0px;
     background-color: #d64c2d;
 }
 
-.flash_button:hover {
+.download_button {
+    padding: 0px;
+    width: 155px;
+    height: 35px;
+    margin-left: 3px;
+    border-radius: 6px;
+    border-width: 0px;
+    background-color: #d64c2d;
+}
+
+.flash_button:hover, .download_button:hover {
     background: #eb4925;
 }
 
-.flash_button:active {
+.flash_button:active, .download_button:active {
     background: #d64c2d;
 }
