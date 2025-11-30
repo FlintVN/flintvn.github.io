@@ -1,6 +1,6 @@
 {
     "name": "FlintESPJVM",
-    "version": "0.3.0",
+    "version": "0.3.1",
     "home_assistant_domain": "FlintESPJVM",
     "funding_url": "https://esphome.io/guides/supporters.html",
     "new_install_prompt_erase": false,
