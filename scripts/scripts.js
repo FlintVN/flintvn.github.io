@@ -3,6 +3,9 @@
  * Board selection and ESP Web Tools integration
  */
 
+// Version configuration - will be loaded from manifest
+let APP_VERSION = '0.0.0';
+
 // Board specifications data
 // Naming convention: F=Flash, H=Internal Flash, N=NAND Flash, R=PSRAM
 // Numbers indicate size in MB (e.g., FH4 = 4MB Internal Flash)
@@ -241,9 +244,38 @@ function enableFlashButton() {
 }
 
 /**
+ * Initialize version display
+ */
+function initVersion() {
+    const versionElement = document.getElementById('appVersion');
+    if (versionElement) {
+        versionElement.textContent = `v${APP_VERSION}`;
+    }
+}
+
+/**
+ * Load version from manifest file
+ */
+async function loadVersionFromManifest() {
+    try {
+        const response = await fetch('manifests/esp32_manifest.json');
+        const manifest = await response.json();
+        APP_VERSION = manifest.version;
+        initVersion();
+    } catch (error) {
+        console.warn('Failed to load version from manifest:', error);
+        // Fallback version is already set to '0.0.0'
+        initVersion();
+    }
+}
+
+/**
  * Initialize the page
  */
 function init() {
+    // Load version from manifest
+    loadVersionFromManifest();
+
     // Render board cards
     boards.forEach(board => {
         const card = createBoardCard(board);

@@ -588,6 +588,21 @@ esp-web-install-button[disabled] {
     font-weight: 600;
 }
 
+.footer-logo-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.footer-logo-text .version {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-secondary);
+    font-weight: 700;
+    margin-left: var(--spacing-xs);
+    -webkit-text-fill-color: var(--color-text-secondary);
+}
+
 .footer-text {
     color: var(--color-text-muted);
     font-size: var(--font-size-sm);
