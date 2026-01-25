@@ -127,6 +127,7 @@ let selectedBoard = null;
 const boardsGrid = document.getElementById('boardsGrid');
 const selectedBoardInfo = document.getElementById('selectedBoardInfo');
 const flashButton = document.getElementById('flashButton');
+const downloadButton = document.getElementById('downloadButton');
 
 /**
  * Create board card HTML
@@ -241,6 +242,40 @@ function enableFlashButton() {
     if (btn) {
         btn.disabled = false;
     }
+
+    // Enable download button
+    downloadButton.disabled = false;
+}
+
+/**
+ * Download firmware for selected board
+ */
+async function downloadFirmware() {
+    if (!selectedBoard) return;
+
+    try {
+        // Fetch the manifest file
+        const response = await fetch(selectedBoard.manifest);
+        const manifest = await response.json();
+
+        // Get the first firmware part from the manifest
+        if (manifest.builds && manifest.builds.length > 0 && manifest.builds[0].parts && manifest.builds[0].parts.length > 0) {
+            const firmwarePath = manifest.builds[0].parts[0].path;
+            
+            // Create a link element and trigger download
+            const link = document.createElement('a');
+            link.href = firmwarePath;
+            link.download = `${selectedBoard.id}_firmware.bin`;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        } else {
+            alert('Firmware information not found in manifest');
+        }
+    } catch (error) {
+        console.error('Failed to download firmware:', error);
+        alert('Failed to download firmware. Please try again.');
+    }
 }
 
 /**
@@ -301,6 +336,9 @@ function init() {
             flashSection.querySelector('.container').insertBefore(warning, flashSection.querySelector('.flash-card'));
         }
     }
+
+    // Add download button event listener
+    downloadButton.addEventListener('click', downloadFirmware);
 }
 
 // Initialize when DOM is ready

@@ -539,6 +539,8 @@ body {
 .flash-actions {
     display: flex;
     justify-content: center;
+    gap: var(--spacing-lg);
+    flex-wrap: wrap;
 }
 
 .btn {
@@ -568,6 +570,24 @@ body {
 }
 
 .btn-primary:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.btn-secondary {
+    background: var(--color-surface);
+    color: var(--color-text-primary);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-sm);
+}
+
+.btn-secondary:hover:not(:disabled) {
+    background: var(--color-surface-hover);
+    border-color: var(--color-border-hover);
+    transform: translateY(-2px);
+}
+
+.btn-secondary:disabled {
     opacity: 0.5;
     cursor: not-allowed;
 }
@@ -662,7 +682,7 @@ esp-web-install-button[disabled] {
 .footer-logo-text .version {
     font-size: var(--font-size-xs);
     color: var(--color-text-secondary);
-    font-weight: 700;
+    font-weight: 400;
     margin-left: var(--spacing-xs);
     -webkit-text-fill-color: var(--color-text-secondary);
 }
