@@ -39,9 +39,35 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <h2 class="hero-title">Flash <span class="gradient-text">FlintESPJVM</span> for ESP32</h2>
-            <p class="hero-subtitle">Select your ESP32 board and flash firmware directly from the browser. No software
-                installation required.</p>
+            <h2 class="hero-title"><span class="gradient-text">FlintESPJVM</span> for ESP32</h2>
+            
+            <!-- About FlintESPJVM -->
+            <div class="about-intro">
+                <p class="about-intro-text">
+                    FlintESPJVM is a lightweight Java Virtual Machine designed specifically for ESP32 microcontrollers. 
+                    It enables developers to run Java applications directly on ESP32 boards, combining the power of the 
+                    Java platform with the efficiency and connectivity features of modern microcontrollers.
+                </p>
+                <div class="about-features">
+                    <div class="feature-item">
+                        <span class="feature-icon">⚡</span>
+                        <h4>Optimized Performance</h4>
+                        <p>Lightweight JVM optimized for embedded systems and limited resources</p>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">🔌</span>
+                        <h4>Full Connectivity</h4>
+                        <p>WiFi and Bluetooth support for IoT applications</p>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">📚</span>
+                        <h4>Java Compatible</h4>
+                        <p>Write Java code using familiar syntax and patterns</p>
+                    </div>
+                </div>
+            </div>
+
+            <p class="hero-subtitle">This page supports flashing FlintESPJVM firmware without requiring any software installation. Please select the ESP32 board below to flash directly from the browser.</p>
 
             <div class="requirements">
                 <div class="requirement">
@@ -59,6 +85,9 @@
             </div>
         </div>
     </section>
+
+    <!-- Divider -->
+    <div class="section-divider"></div>
 
     <!-- Board Selection -->
     <section id="boards" class="boards-section">

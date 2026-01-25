@@ -282,6 +282,70 @@ body {
 }
 
 /* ===================================
+   About Intro Section (in Hero)
+   =================================== */
+.about-intro {
+    margin: var(--spacing-2xl) 0;
+}
+
+.about-intro-text {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-secondary);
+    line-height: 1.8;
+    margin-bottom: var(--spacing-2xl);
+    text-align: center;
+}
+
+.about-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-xl);
+    margin-bottom: var(--spacing-2xl);
+}
+
+.feature-item {
+    padding: var(--spacing-lg);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    text-align: center;
+    transition: all var(--transition-normal);
+}
+
+.feature-item:hover {
+    background: var(--color-surface-hover);
+    border-color: var(--color-border-hover);
+    transform: translateY(-4px);
+}
+
+.feature-icon {
+    display: block;
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.feature-item h4 {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-text-primary);
+}
+
+.feature-item p {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+    line-height: 1.6;
+}
+
+/* ===================================
+   Section Divider
+   =================================== */
+.section-divider {
+    border-top: 1px solid var(--color-border);
+    border-bottom: 0px solid var(--color-border);
+}
+
+/* ===================================
    Board Selection Section
    =================================== */
 .boards-section {
