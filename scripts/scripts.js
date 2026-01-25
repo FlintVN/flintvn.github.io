@@ -17,7 +17,7 @@ const boards = [
         flash: '4 MB',
         ram: '520 KB',
         architecture: 'Xtensa',
-        manifest: 'firmware/esp32/manifest.json'
+        manifest: 'manifests/esp32_manifest.json'
     },
     {
         id: 'esp32-c3fh4',
@@ -29,7 +29,7 @@ const boards = [
         flash: '4 MB',
         ram: '400 KB',
         architecture: 'RISC-V',
-        manifest: 'firmware/esp32c3fh4/manifest.json'
+        manifest: 'manifests/esp32-c3fh4_manifest.json'
     },
     {
         id: 'esp32-c6fh4',
@@ -41,7 +41,7 @@ const boards = [
         flash: '4 MB',
         ram: '512 KB',
         architecture: 'RISC-V',
-        manifest: 'firmware/esp32c6fh4/manifest.json'
+        manifest: 'manifests/esp32-c6fh4_manifest.json'
     },
     {
         id: 'esp32-c6fh8',
@@ -53,7 +53,7 @@ const boards = [
         flash: '8 MB',
         ram: '512 KB',
         architecture: 'RISC-V',
-        manifest: 'firmware/esp32c6fh8/manifest.json'
+        manifest: 'manifests/esp32-c6fh8_manifest.json'
     },
     {
         id: 'esp32-s2fn4r2',
@@ -65,7 +65,7 @@ const boards = [
         flash: '4 MB',
         ram: '320 KB + 2 MB PSRAM',
         architecture: 'Xtensa',
-        manifest: 'firmware/esp32s2fn4r2/manifest.json'
+        manifest: 'manifests/esp32-s2fn4r2_manifest.json'
     },
     {
         id: 'esp32-s3fh4r2',
@@ -77,7 +77,7 @@ const boards = [
         flash: '4 MB',
         ram: '512 KB + 2 MB PSRAM',
         architecture: 'Xtensa',
-        manifest: 'firmware/esp32s3fh4r2/manifest.json'
+        manifest: 'manifests/esp32-s3fh4r2_manifest.json'
     },
     {
         id: 'esp32-s3n4rx',
@@ -89,7 +89,7 @@ const boards = [
         flash: '4 MB',
         ram: '512 KB + 8 MB PSRAM',
         architecture: 'Xtensa',
-        manifest: 'firmware/esp32s3n4rx/manifest.json'
+        manifest: 'manifests/esp32-s3n4rx_manifest.json'
     },
     {
         id: 'esp32-s3n8rx',
@@ -101,7 +101,7 @@ const boards = [
         flash: '8 MB',
         ram: '512 KB + 8 MB PSRAM',
         architecture: 'Xtensa',
-        manifest: 'firmware/esp32s3n8rx/manifest.json'
+        manifest: 'manifests/esp32-s3n8rx_manifest.json'
     },
     {
         id: 'esp32-s3n16rx',
@@ -113,7 +113,7 @@ const boards = [
         flash: '16 MB',
         ram: '512 KB + 8 MB PSRAM',
         architecture: 'Xtensa',
-        manifest: 'firmware/esp32s3n16rx/manifest.json'
+        manifest: 'manifests/esp32-s3n16rx_manifest.json'
     }
 ];
 
