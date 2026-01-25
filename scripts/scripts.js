@@ -13,7 +13,7 @@ const boards = [
     {
         id: 'esp32-generic',
         name: 'Generic ESP32 Boards',
-        image: null,
+        image: 'images/esp32.webp',
         cpu: 'Xtensa LX6',
         cores: 2,
         clockSpeed: '240 MHz',
@@ -25,7 +25,7 @@ const boards = [
     {
         id: 'esp32-c3fh4',
         name: 'ESP32-C3FH4',
-        image: null,
+        image: 'images/esp32_c3fh4.webp',
         cpu: 'RISC-V',
         cores: 1,
         clockSpeed: '160 MHz',
@@ -37,7 +37,7 @@ const boards = [
     {
         id: 'esp32-c6fh4',
         name: 'ESP32-C6FH4',
-        image: null,
+        image: 'images/esp32_c6.webp',
         cpu: 'RISC-V',
         cores: 1,
         clockSpeed: '160 MHz',
@@ -49,7 +49,7 @@ const boards = [
     {
         id: 'esp32-c6fh8',
         name: 'ESP32-C6FH8',
-        image: null,
+        image: 'images/esp32_c6.webp',
         cpu: 'RISC-V',
         cores: 1,
         clockSpeed: '160 MHz',
@@ -61,7 +61,7 @@ const boards = [
     {
         id: 'esp32-s2fn4r2',
         name: 'ESP32-S2FN4R2',
-        image: null,
+        image: 'images/esp32_s2fh4r2.webp',
         cpu: 'Xtensa LX7',
         cores: 1,
         clockSpeed: '240 MHz',
@@ -73,7 +73,7 @@ const boards = [
     {
         id: 'esp32-s3fh4r2',
         name: 'ESP32-S3FH4R2',
-        image: null,
+        image: 'images/esp32_s3fh4r2.webp',
         cpu: 'Xtensa LX7',
         cores: 2,
         clockSpeed: '240 MHz',
@@ -85,7 +85,7 @@ const boards = [
     {
         id: 'esp32-s3n4rx',
         name: 'ESP32-S3N4RX',
-        image: null,
+        image: 'images/esp32_s3nxrx.webp',
         cpu: 'Xtensa LX7',
         cores: 2,
         clockSpeed: '240 MHz',
@@ -97,7 +97,7 @@ const boards = [
     {
         id: 'esp32-s3n8rx',
         name: 'ESP32-S3N8RX',
-        image: null,
+        image: 'images/esp32_s3nxrx.webp',
         cpu: 'Xtensa LX7',
         cores: 2,
         clockSpeed: '240 MHz',
@@ -109,7 +109,7 @@ const boards = [
     {
         id: 'esp32-s3n16rx',
         name: 'ESP32-S3N16RX',
-        image: null,
+        image: 'images/esp32_s3nxrx.webp',
         cpu: 'Xtensa LX7',
         cores: 2,
         clockSpeed: '240 MHz',
